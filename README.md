@@ -3,3 +3,7 @@
 "**Branch:** $BRANCH" 
 "**Commit:** ${COMMIT_SHA:0:7}" 
 "---" 
+\"## Push Log - \$(date)\" 
+\"**Developer:** \${{ github.actor }}\" 
+\"**Branch:** \${{ github.ref_name }}\" 
+\"---\" 

@@ -1,4 +1,4 @@
-echo 'name: Push Logger to README
+name: Push Logger to README
 
 on:
   push:
@@ -28,4 +28,4 @@ jobs:
         git config user.email "action@github.com"
         git add README.md
         git commit -m "Auto-update README" || exit 0
-        git push' > .github/workflows/push-logger.yml
+        git push
