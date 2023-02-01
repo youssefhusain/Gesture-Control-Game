@@ -42,3 +42,4 @@ jobs:
 
         docker push $DOCKERHUB_REPO:$TAG
         docker push $DOCKERHUB_REPO:latest
+        
