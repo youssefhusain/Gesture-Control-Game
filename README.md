@@ -1,1 +1,5 @@
-# hand-move
+# hand-move"## Push Log - $PUSH_DATE" 
+"**Developer:** $PUSHER"   
+"**Branch:** $BRANCH" 
+"**Commit:** ${COMMIT_SHA:0:7}" 
+"---" 

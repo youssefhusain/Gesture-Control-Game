@@ -1,0 +1,73 @@
+name: Push Logger to README
+
+on:
+  push:
+    branches:
+      - model-test
+
+jobs:
+  log-push:
+    runs-on: ubuntu-latest
+    
+    permissions:
+      contents: write
+    
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
+
+    - name: Configure Git
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+
+    - name: Log Push to README
+      run: |
+        # Create Push Information
+        PUSH_DATE=$(date '+%Y-%m-%d %H:%M:%S UTC')
+        COMMIT_SHA=$(git rev-parse HEAD)
+        COMMIT_MESSAGE=$(git log -1 --pretty=%B)
+        PUSHER="${{ github.actor }}"
+        BRANCH="${{ github.ref_name }}"
+        
+        # Create Push Log Entry
+        PUSH_LOG="## 📝 Push Log - $PUSH_DATE
+
+**Developer:** $PUSHER  
+**Branch:** $BRANCH  
+**Commit:** \`${COMMIT_SHA:0:7}\`  
+**Message:** $COMMIT_MESSAGE  
+
+---
+
+"
+        
+        # Add log to README
+        if [ -f README.md ]; then
+          # If README exists, add log at the top
+          echo "$PUSH_LOG" > temp_readme.md
+          cat README.md >> temp_readme.md
+          mv temp_readme.md README.md
+        else
+          # Create new README
+          cat > README.md << EOF
+# 🚀 Project with Automatic Push Logging
+
+This project automatically logs every push to this file.
+
+---
+
+$PUSH_LOG
+EOF
+        fi
+
+    - name: Commit and Push Changes
+      run: |
+        git add README.md
+        if git diff --staged --quiet; then
+          echo "No changes to commit"
+        else
+          git commit -m "🤖 Auto-update: Log new push on $(date '+%Y-%m-%d %H:%M:%S')"
+          git push
