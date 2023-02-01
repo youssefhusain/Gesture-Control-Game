@@ -1,6 +1,3 @@
-Here's a polished, professional English README.md file for your Hand Gesture Recognition API project, including all requested elements (unit tests, Hugging Face deployment, FastAPI):
-
-```markdown
 # Hand Gesture Recognition API
 
 ![Project Banner](https://i.imgur.com/JK7w3Pj.png)
@@ -20,7 +17,7 @@ A production-ready API for classifying hand gestures into directional commands (
 
 ### Try the Live Demo
 [![Hugging Face Spaces](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Spaces-blue)](https://huggingface.co/spaces/your-username/hand-gesture-api)
-
+[![Hugging Face Spaces](img/hug.png)
 ### Local Development
 ```bash
 # Clone repository
@@ -32,7 +29,7 @@ pip install -r requirements.txt
 
 # Launch development server
 uvicorn main:app --reload
-```
+
 
 ## 📚 API Documentation
 
@@ -57,7 +54,7 @@ uvicorn main:app --reload
 }
 ```
 
-![API Screenshot](api.png)
+![API Screenshot](img/api.png)
 
 ## 🧪 Testing Suite
 
