@@ -1,7 +1,9 @@
-# امسح الملف المعطل
-rm .github/workflows/ci.yaml
+# 1. احذف الملف المعطل (اختياري لو مازال موجود)
+rm -f .github/workflows/ci.yaml
 
-# أنشئ الملف الصح
+# 2. أنشئ الملف الجديد بشكل سليم
+mkdir -p .github/workflows
+
 cat > .github/workflows/push-logger.yml << 'EOF'
 name: Push Logger to README
 
@@ -28,10 +30,13 @@ jobs:
         echo "---" >> README.md
 
     - name: Commit
+      env:
+        TOKEN: ${{ secrets.PAT_TOKEN }}
       run: |
         git config user.name "GitHub Action"
         git config user.email "action@github.com"
         git add README.md
-        git commit -m "Auto-update README" || exit 0
-        git push
+        git commit -m "Auto-update README" || echo "No changes to commit"
+        git remote set-url origin https://x-access-token:${TOKEN}@github.com/${{ github.repository }}
+        git push origin HEAD
 EOF
