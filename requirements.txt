@@ -1,6 +1,6 @@
 prefect
 mlflow
 scikit-learn
-numpy
+numpy>=1.21.0
 pandas
 matplotlib
