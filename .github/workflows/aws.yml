@@ -2,9 +2,9 @@ name: CI | Test & Build Docker Image
 
 on:
   push:
-    branches: [ main ]
+    branches: [ docker ]
   pull_request:
-    branches: [ main ]
+    branches: [ docker ]
 
 env:
   DOCKERHUB_REPO: ${{ secrets.DOCKERHUB_USERNAME }}/churn-prediction
