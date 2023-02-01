@@ -5,6 +5,7 @@ import joblib
 from prometheus_client import Counter, Histogram, generate_latest
 from fastapi.responses import Response
 import time
+from prometheus_client import make_asgi_app, Counter
 
 model = None
 scaler = None
@@ -64,3 +65,8 @@ def predict_action(data: LandmarkRequest):
 @app.get("/metrics")
 async def metrics():
     return Response(generate_latest(), media_type="text/plain")
+
+
+
+metrics_app = make_asgi_app()
+app.mount("/metrics", metrics_app)
