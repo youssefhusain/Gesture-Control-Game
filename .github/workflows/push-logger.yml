@@ -20,12 +20,49 @@ jobs:
         echo "## Push Log - $(date)" >> history.md
         echo "**Developer:** ${{ github.actor }}" >> history.md
         echo "**Branch:** ${{ github.ref_name }}" >> history.md
-        echo "---" >> history .md
+        echo "**Commit:** ${{ github.sha }}" >> history.md
+        echo "---" >> history.md
 
-    - name: Commit
+    - name: Commit push log
       run: |
-        git config user.name "GitHub Action"
-        git config user.email "action@github.com"
+        git config user.name "GitHub Actions"
+        git config user.email "actions@github.com"
         git add history.md
-        git commit -m "Auto-update README" || exit 0
+        git commit -m "Update push history [skip ci]" || exit 0
         git push
+
+  unit-tests:
+    needs: log-push
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Set up Python 3.10
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.10'
+
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+        pip install pytest pytest-cov
+
+    - name: Run unit tests
+      run: |
+        python -m pytest test_api.py -v --cov=./ --cov-report=xml
+
+    - name: Upload coverage report
+      uses: codecov/codecov-action@v3
+      with:
+        file: ./coverage.xml
+        flags: unittests
+        name: codecov-umbrella
+
+    - name: Check test results
+      if: ${{ failure() }}
+      run: |
+        echo "Unit tests failed! Check the test output above."
+        exit 1
