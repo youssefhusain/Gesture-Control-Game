@@ -10,7 +10,7 @@ def test_predict():
         [115.14, 173.42], [108.09, 173.32], [105.69, 165.90], [107.82, 171.23],
         [109.83, 176.38]
     ]
-    with TestClient(app) as client:  # Ensures startup event runs
+    with TestClient(app) as client:  
         response = client.post("/predict", json={"landmarks": test_landmarks})
         assert response.status_code == 200, f"Error: {response.status_code} - {response.text}"
         assert response.json()["action"] in ["up", "down", "left", "right"]
