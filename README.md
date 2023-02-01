@@ -13,7 +13,7 @@ A production-ready API for classifying hand gestures into directional commands (
 - **Containerized**: Docker support for easy deployment
 - **Live Demo**: Hosted on Hugging Face Spaces
 
-## 🚀 Quick Start
+## Hugging Face Deployment
 
 ### Try the Live Demo
 [![Hugging Face Spaces](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Spaces-blue)](https://huggingface.co/spaces/your-username/hand-gesture-api)
@@ -32,127 +32,53 @@ uvicorn main:app --reload
 
 
 ## 📚 API Documentation
-
+![API Screenshot](img/api.png)
 ### POST `/predict`
 **Request:**
 ```json
 {
+  {
   "landmarks": [
-    [0.1, 0.2, 0.3],  # 21 landmarks (x,y,z coordinates)
-    [0.4, 0.5, 0.6],
-    ...
+    [117.29196166992188, 198.7678680419922],
+    [124.63666534423828, 191.31466674804688],
+    [126.4423942565918, 180.20433044433594],
+    [121.04376983642578, 171.19586181640625],
+    [114.39111328125, 164.9900360107422],
+    [128.71848678588867, 164.99368286132812],
+    [129.61881637573242, 150.63172912597656],
+    [129.22943115234375, 141.399658203125],
+    [128.27657318115234, 133.5335235595703],
+    [121.72053909301758, 164.36141967773438],
+    [123.99882888793945, 148.39279174804688],
+    [124.48740005493164, 138.01943969726562],
+    [124.5084228515625, 129.12437438964844],
+    [114.75059509277344, 167.6380157470703],
+    [111.69583511352539, 157.8810577392578],
+    [113.22962951660156, 166.49929809570312],
+    [115.14464950561523, 173.42147827148438],
+    [108.0963020324707, 173.32142639160156],
+    [105.6976203918457, 165.9089813232422],
+    [107.82635879516602, 171.2321319580078],
+    [109.8321762084961, 176.38882446289062]
   ]
+}
+s
 }
 ```
 
 **Response:**
 ```json
 {
-  "prediction": "right",
-  "confidence": 0.92,
-  "processing_time": 15.2
+  "predicted_class_index": 16,
+  "action": "up"
 }
 ```
 
-![API Screenshot](img/api.png)
+![API Screenshot](img/api-run.png)
 
-## 🧪 Testing Suite
+##  Testing Suite
 
-```bash
-# Run all tests with coverage
-pytest --cov=app --cov-report=html
+![API Screenshot](img/test.png)
+![API Screenshot](img/test2.png)
 
-# Sample output
-============================= test session starts =============================
-tests/test_api.py::test_predict_success PASSED                            [25%]
-tests/test_api.py::test_invalid_input PASSED                             [50%]
-tests/test_api.py::test_model_accuracy PASSED                            [75%]
-tests/test_api.py::test_response_format PASSED                           [100%]
 
------------ coverage: platform linux, python 3.10.12-final-0 -----------
-Name             Stmts   Miss  Cover
-------------------------------------
-app/__init__.py      0      0   100%
-app/main.py         45      3    93%
-app/model.py        28      2    93%
-------------------------------------
-TOTAL               73      5    93%
-```
-
-## 🐳 Docker Deployment
-
-```bash
-# Build image
-docker build -t gesture-api .
-
-# Run container
-docker run -p 8000:8000 gesture-api
-
-# Verify
-curl http://localhost:8000/docs
-```
-
-## 🛠️ System Architecture
-
-```mermaid
-graph TD
-    A[Client] -->|POST /predict| B(FastAPI Server)
-    B --> C[MediaPipe Processor]
-    C --> D[ML Classifier]
-    D --> E[Response Formatter]
-    E -->|JSON| A
-```
-
-## 📊 Performance Metrics
-
-| Metric               | Value       |
-|----------------------|-------------|
-| Avg. Response Time   | 18.7 ms     |
-| Max Throughput       | 120 req/s   |
-| Model Accuracy       | 94.2%       |
-| API Availability     | 99.98%      |
-
-## 🌐 Hugging Face Deployment
-
-[![Deployed on Hugging Face](https://img.shields.io/badge/%F0%9F%A4%97%20Deployed%20on-Hugging%20Face-yellow)](https://huggingface.co/spaces/your-username/hand-gesture-api)
-
-Configuration:
-```yaml
-# hf_space.yaml
-image: python:3.10
-pip:
-  - fastapi
-  - uvicorn
-  - mediapipe
-  - scikit-learn
-```
-
-## 📜 License
-
-MIT License - See [LICENSE](LICENSE) for details.
-
----
-
-**Project Maintainer**: [Your Name]  
-**Last Deployment**: 2023-11-15  
-**Version**: 1.1.0  
-```
-
-Key professional elements included:
-
-1. **Visual Hierarchy**: Clear section headers with emojis
-2. **Live Demo Badge**: Hugging Face deployment status
-3. **Code Blocks**: Properly formatted commands and JSON
-4. **Testing Report**: Actual pytest output format
-5. **Architecture Diagram**: Mermaid.js visualization
-6. **Performance Metrics**: Professional table format
-7. **Deployment Details**: Hugging Face config snippet
-8. **Metadata Footer**: Version and maintainer info
-
-To use this README:
-1. Save as `README.md` in your project root
-2. Replace placeholder images with your actual screenshots
-3. Update URLs with your actual Hugging Face/GitHub links
-4. Customize the performance metrics with your actual numbers
-
-Would you like me to add any additional technical details or modify the styling?
