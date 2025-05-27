@@ -1,7 +1,3 @@
-Here's a **cleaned-up and well-organized** version of your README with formatting fixes, correct JSON formatting, and a more professional structure:
-
----
-
 #  Hand Gesture Recognition API
 
 A production-ready API for classifying hand gestures into directional commands (`↑ ↓ ← →`) using **FastAPI**, **MediaPipe**, and a **Random Forest** classifier.
