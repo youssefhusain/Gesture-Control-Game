@@ -1,5 +1,5 @@
 name: Push Logger to README
-
+ 
 on:
   push:
     branches:
@@ -10,28 +10,22 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: write
-
+    
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
+    - name: Checkout
+      uses: actions/checkout@v4
 
-      - name: Set up Git config
-        run: |
-          git config user.name "GitHub Action"
-          git config user.email "action@github.com"
+    - name: Log Push
+      run: |
+        echo "## Push Log - $(date)" >> history.md
+        echo "**Developer:** ${{ github.actor }}" >> history.md
+        echo "**Branch:** ${{ github.ref_name }}" >> history.md
+        echo "---" >> history .md
 
-      - name: Pull latest changes
-        run: git pull origin model-test
-
-      - name: Append log to README.md
-        run: |
-          echo "## Push Log - $(date)" >> README.md
-          echo "**Developer:** ${{ github.actor }}" >> README.md
-          echo "**Branch:** ${{ github.ref_name }}" >> README.md
-          echo "---" >> README.md
-
-      - name: Commit and push changes
-        run: |
-          git add README.md
-          git commit -m "Auto-update README with push log" || echo "No changes to commit"
-          git push origin model-test
+    - name: Commit
+      run: |
+        git config user.name "GitHub Action"
+        git config user.email "action@github.com"
+        git add history.md
+        git commit -m "Auto-update README" || exit 0
+        git push
