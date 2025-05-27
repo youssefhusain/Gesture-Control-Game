@@ -2,20 +2,20 @@ Here's a **cleaned-up and well-organized** version of your README with formattin
 
 ---
 
-# ✋ Hand Gesture Recognition API
+#  Hand Gesture Recognition API
 
 A production-ready API for classifying hand gestures into directional commands (`↑ ↓ ← →`) using **FastAPI**, **MediaPipe**, and a **Random Forest** classifier.
 
 ---
 
-## 🚀 Features
+##  Features
 
-* ⚡ **Real-time Processing**: 60+ FPS hand landmark detection with MediaPipe
-* 🤖 **Machine Learning**: Random Forest classifier (94% accuracy)
-* 🌐 **RESTful API**: JSON-based request/response
-* ✅ **Test Coverage**: 92% unit test coverage using `pytest`
-* 📦 **Containerized**: Docker support for easy deployment
-* 🔴 **Live Demo**: Hosted on Hugging Face Spaces
+*  **Real-time Processing**: 60+ FPS hand landmark detection with MediaPipe
+*  **Machine Learning**: Random Forest classifier (94% accuracy)
+*  **RESTful API**: JSON-based request/response
+*  **Test Coverage**: 92% unit test coverage using `pytest`
+*  **Containerized**: Docker support for easy deployment
+*  **Live Demo**: Hosted on Hugging Face Spaces
 
 ---
 
@@ -45,13 +45,13 @@ uvicorn main:app --reload
 
 ---
 
-## 📚 API Documentation
+##  API Documentation
 
 ![API Screenshot](img/api.png)
 
-### 🔹 POST `/predict`
+###  POST `/predict`
 
-#### ✅ Request:
+####  Request:
 
 ```json
 {
@@ -81,7 +81,7 @@ uvicorn main:app --reload
 }
 ```
 
-#### 🔁 Response:
+####  Response:
 
 ```json
 {
@@ -94,16 +94,7 @@ uvicorn main:app --reload
 
 ---
 
-## 🧪 Testing Suite
-
-* Run tests using `pytest`:
-
-```bash
-pytest --cov=./ --cov-report=xml
-```
-
-* Test coverage: **92%**
-
+##  Testing Suite
 ![Test Results](img/test.png)
 
 ---
