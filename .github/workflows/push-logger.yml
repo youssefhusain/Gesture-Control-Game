@@ -17,9 +17,9 @@ jobs:
 
     - name: Log Push
       run: |
-        echo "## Push Log - $(date)" >> history .md
-        echo "**Developer:** ${{ github.actor }}" >> history .md
-        echo "**Branch:** ${{ github.ref_name }}" >> history .md
+        echo "## Push Log - $(date)" >> history.md
+        echo "**Developer:** ${{ github.actor }}" >> history.md
+        echo "**Branch:** ${{ github.ref_name }}" >> history.md
         echo "---" >> history .md
 
     - name: Commit
