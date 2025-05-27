@@ -26,6 +26,6 @@ jobs:
       run: |
         git config user.name "GitHub Action"
         git config user.email "action@github.com"
-        git add README.md
+        git add history.md
         git commit -m "Auto-update README" || exit 0
         git push
