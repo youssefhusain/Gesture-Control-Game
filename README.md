@@ -1,4 +1,4 @@
-# 🎯 Churn Prediction System
+# docker readme
 
 <div align="center">
 
