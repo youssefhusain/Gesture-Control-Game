@@ -6,11 +6,6 @@
 ![Docker](https://img.shields.io/badge/Docker-Containerized-blue?style=for-the-badge&logo=docker)
 ![Status](https://img.shields.io/badge/Status-Production%20Ready-green?style=for-the-badge)
 ![Monitoring](https://img.shields.io/badge/Monitoring-Grafana-orange?style=for-the-badge&logo=grafana)
-
-*Intelligent customer retention through advanced machine learning*
-
-[🚀 Quick Start](#quick-start) • [📊 Features](#features) • [🏗️ Architecture](#architecture) • [📈 Monitoring](#monitoring)
-
 </div>
 
 ---
@@ -35,7 +30,7 @@ The churn prediction system is designed to analyze customer data and predict whi
 
 The system is deployed using Docker, and the deployment status can be monitored via the platform interface. Below is a snapshot of the deployment dashboard:
 
-![Deployment Dashboard](images/deployment_dashboard.png)
+![Deployment Dashboard](img/img1.png)
 
 Key points:
 - **Service Name**: `churn-prediction`
@@ -47,7 +42,7 @@ Key points:
 
 The Docker image used for deployment is built and managed on Docker Hub. Below is a snapshot of the image details:
 
-![Docker Image Details](images/docker_image_details.png)
+![Docker Image Details](img/img2.png)
 
 Key details:
 - **Repository**: `youssefs7s/churn-prediction`
@@ -60,7 +55,7 @@ Key details:
 
 Grafana is used for monitoring the performance and metrics of the churn prediction system. Below is a snapshot of the Grafana dashboard:
 
-![Grafana Dashboard](images/grafana_dashboard.png)
+![Grafana Dashboard](img/img3.png)
 
 Key metrics displayed:
 - Time series data for model performance
