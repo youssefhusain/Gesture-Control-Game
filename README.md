@@ -14,11 +14,7 @@
 </div>
 
 ---
-Below is a prefinal `README.md` template that includes the provided images. The images are inserted using Markdown syntax, assuming they are saved in the repository's directory (e.g., `images/`). If the images are hosted elsewhere, you can use their direct URLs instead.
 
-### README.md
-
-```markdown
 # Churn Prediction System
 
 This repository contains the implementation and deployment details of a churn prediction system. The system uses machine learning models to predict customer churn and provides insights through monitoring and visualization tools.
@@ -102,8 +98,7 @@ Contributions are welcome! Please fork the repository and submit a pull request 
 
 ---
 
-Feel free to customize this README further based on additional requirements or specific details about your project.
-```
+
 
 ### Steps to Insert Images
 
