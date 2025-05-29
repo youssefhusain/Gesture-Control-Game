@@ -19,8 +19,6 @@ This repository contains the implementation and deployment details of a churn pr
 - [Deployment](#deployment)
 - [Docker Image Details](#docker-image-details)
 - [Monitoring with Grafana](#monitoring-with-grafana)
-- [Getting Started](#getting-started)
-- [Contributing](#contributing)
 
 ## Overview
 
@@ -30,7 +28,7 @@ The churn prediction system is designed to analyze customer data and predict whi
 
 The system is deployed using Docker, and the deployment status can be monitored via the platform interface. Below is a snapshot of the deployment dashboard:
 
-![Deployment Dashboard](img/img1.png)
+![Deployment Dashboard](img/img3.png)
 
 Key points:
 - **Service Name**: `churn-prediction`
@@ -55,62 +53,11 @@ Key details:
 
 Grafana is used for monitoring the performance and metrics of the churn prediction system. Below is a snapshot of the Grafana dashboard:
 
-![Grafana Dashboard](img/img3.png)
+![Grafana Dashboard](img/img1.png)
 
 Key metrics displayed:
 - Time series data for model performance
 - Distribution of predictions
 - Key performance indicators (KPIs)
 
-## Getting Started
 
-To get started with the churn prediction system, follow these steps:
-
-1. **Clone the Repository**:
-   ```bash
-   git clone https://github.com/youssefs7s/churn-prediction.git
-   ```
-
-2. **Build the Docker Image**:
-   ```bash
-   docker build -t yourusername/churn-prediction .
-   ```
-
-3. **Push the Image to Docker Hub**:
-   ```bash
-   docker push yourusername/churn-prediction:latest
-   ```
-
-4. **Deploy the Service**:
-   Use the platform's deployment interface or CLI to deploy the service.
-
-5. **Monitor with Grafana**:
-   Configure Grafana to connect to the monitoring data source and visualize the metrics.
-
-## Contributing
-
-Contributions are welcome! Please fork the repository and submit a pull request with your changes. Make sure to adhere to the coding standards and include relevant tests.
-
----
-
-
-
-### Steps to Insert Images
-
-1. **Save the Images**:
-   - Save the three images in a directory named `images/` within your repository.
-   - Name the images appropriately (e.g., `deployment_dashboard.png`, `docker_image_details.png`, `grafana_dashboard.png`).
-
-2. **Update the README**:
-   - Replace the placeholders in the `README.md` with the actual image filenames.
-   - Ensure the images are committed to the repository along with the `README.md`.
-
-3. **Commit and Push**:
-   - Commit the changes and push them to your repository:
-     ```bash
-     git add .
-     git commit -m "Update README with deployment and monitoring details"
-     git push origin main
-     ```
-
-This README provides a comprehensive overview of the churn prediction system, including deployment, Docker image details, and monitoring with Grafana. Adjust the content as needed to fit your specific project requirements.
